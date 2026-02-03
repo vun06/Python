@@ -1,0 +1,36 @@
+# Global Variables & Imported Libraries
+my_global_int = 67
+print("Global variable value:", my_global_int)
+
+def main():
+    print("\nStarting The Code Challenge")
+
+    # Example 1: Basic while loop (counting up)
+    print("\nExample 1: Counting from 1 to 5")
+    count = 1
+    while count <= 5:
+        print("Count:", count)
+        count += 1
+
+    # Example 2: while loop with a condition (even numbers)
+    print("\nExample 2: Printing even numbers less than 10")
+    num = 0
+    while num < 10:
+        if num % 2 == 0:
+            print("Even number:", num)
+        num += 1
+
+    # Example 3: while loop using break
+    print("\nExample 3: Using break to stop the loop")
+    x = 0
+    while True:
+        print("x is:", x)
+        if x == 3:
+            print("Breaking out of the loop")
+            break
+        x += 1
+
+    print("\nEnding The Code Challenge")
+
+# Calling main() function
+main()

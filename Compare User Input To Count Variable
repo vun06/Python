@@ -1,0 +1,24 @@
+def main():
+    print("Starting Code Challenge")
+    # Print The User Input
+    num = input("> ")
+    try:
+        num = int(num)
+    except:
+        print('Please enter a valid number')
+        print(num, 'is NOT a valid number')
+    print("Starting While Loop - Comparing User & Count Variable")
+    count = 0
+    while count < 10:
+        if (count == num):
+            print("The User variable is equal to the count variable.") 
+            print("User = ", num)
+            print("Count = ", count)
+        else:
+            print(count)
+        count += 1
+    
+    print("Ending While Loop")
+    print("Ending Code Challenge")
+
+main()

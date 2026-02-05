@@ -1,0 +1,31 @@
+def main():
+    print("Starting Code Challenge")
+    # Declare Any main() Variables - (Not Global)
+    print("Enter an integer number 20 or greater > 20")
+    
+    while True:
+        num = int(input('> '))
+        if num >= 20:
+            break
+        print('Your number ' + str(num) + ' is not a valid Integer 20 or greater.  please try again')
+    print('Your number ' + str(num) + ' is a valid Integer 20 or greater.  Thanks')
+
+    count = 0
+    
+    print("Starting While Loop - Print Count Variable")
+    print("The user input started as " + str(num))
+    # Enter Your Code Here:
+    while (num >= 1):
+        num = num/2
+        print("The current value of user input after some math is " + str(num))
+        count += 1
+        if (count == 1):
+            t = "time"
+        else:
+            t = "times"
+        print("The While loop has looped " + str(count) + " " + t)
+    print("The While Loop, looped a total of of " + str(count) + " " + t)
+    print("Ending While Loop")
+    print("Ending Code Challenge")
+
+main()

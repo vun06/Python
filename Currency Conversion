@@ -1,0 +1,19 @@
+def conversionRate(r, d):
+    
+    exchange = r * d
+    print("This is your currency in your country after exchange from dollar")
+    return exchange
+
+def main():
+    print("Hi welcome to currency system")
+    while True:
+        dollar = int(input('How much dollar do you want to converse? \n> '))
+        rate = float(input("What is your country's currency rate to the U.S.?\n> "))
+        print(conversionRate(rate, dollar))
+        YN = input('Do you want to continue? Yes/No \n> ').strip().lower()
+        if YN in ['no', 'n']:
+            break
+    print('Exiting the Program')
+    
+main()
+    

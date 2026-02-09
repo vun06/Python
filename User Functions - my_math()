@@ -1,0 +1,41 @@
+def my_math(x,y) :
+  z=x+y
+  return z
+
+def main():
+  my_num_1 = 5
+  my_num_2 = 2
+  sum = my_math(my_num_1, my_num_2)
+  print("The sum of", my_num_1, "+", my_num_2, "=",sum)
+
+main()
+print('Done with Challenge 1')
+
+#Challenge #2
+#Create a function that multiplies 2 numbers and returns the result
+#Enter Code Here:
+def my_math1(x,y):
+    z = x*y
+    return z
+    
+def main():
+    my_num_1 = 5
+    my_num_2 = 2
+    multiple = my_math1(my_num_1, my_num_2)
+    print("The sum of", my_num_1, "+", my_num_2, "=", multiple)
+    
+    
+#Challenge #3
+#Create a function that adds 2 numbers and if the result is odd, adds 1, then returns the result
+#Enter Code Here:
+def my_math2(x,y):
+    z = x + y
+    if z % 2 == 0:
+        z +=1
+    return z
+def main():
+    my_num_1 = 5
+    my_num_2 = 2
+    sum = my_math2(my_num_1, my_num_2)
+    print("The sum of", my_num_1, "+", my_num_2, "=",sum)
+    

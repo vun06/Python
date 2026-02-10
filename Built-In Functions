@@ -1,0 +1,43 @@
+# Python Lab
+print('Playing with Builtin Python Functions')
+student_name = "Vu Nguyen"
+program_creation_date = "02/10/2026"
+
+print(student_name)
+print(program_creation_date)
+
+
+user_input = input("Enter a number: ")
+print("You entered:", user_input)
+
+
+number = int(user_input)             
+print("Integer value:", number)
+
+
+print("Type of number:", type(number))  # type() shows the data type
+
+
+negative_num = -15
+print("Absolute value:", abs(negative_num))  # abs() removes the negative sign
+
+
+word = "Python"
+print("Length of word:", len(word))   # len() counts characters
+
+
+
+
+print("Max value:", max(3, 7, 2))     
+
+
+print("Min value:", min(3, 7, 2))     
+
+
+print("Power:", pow(2, 3))            
+
+
+print("Rounded number:", round(3.6))  
+
+#My code follows:''')
+# update the 'student_name' and 'program_creation_date' variables and add your code here:

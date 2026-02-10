@@ -1,0 +1,30 @@
+def my_math(x,y, operation) :
+    if operation == 'add':
+        result = x + y
+        symbol = "+"
+    elif operation == 'subtract':
+        result = x - y
+        symbol = '-'
+    elif operation == "multiply":
+        result = x * y
+        symbol = '*'
+    elif operation == 'divide':
+        if y == 0:
+            print("Error: Division by zero")
+            return None
+        result = x / y
+        symbol = '/'
+    else:
+        print('Invalid operation')
+        return none
+    
+    print(f'{x} {sym} {y} = {result}')
+    
+
+def main():
+  my_num_1 = int(input('Enter your first number: '))
+  my_num_2 = int(input('Enter your second number: '))
+  sym = input('What math operation do you want to use: add, subtract, multiply, divide \n> ')
+  my_math(my_num_1, my_num_2, sym)
+
+main()

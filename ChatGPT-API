@@ -1,0 +1,79 @@
+chatgpt_api_notebook_demo.py
+
+What I changed vs. a minimal example:
+- CLI input (so it's usable like a tool)
+- Developer instructions (consistent output)
+- Structured JSON output via JSON Schema (easy to parse + grade)
+- Basic error handling
+"""
+
+import json
+import os
+import sys
+from openai import OpenAI
+
+# Requires OPENAI_API_KEY in your environment
+# (Real Python recommends storing secrets in env vars)
+# Example:
+#   export OPENAI_API_KEY="..."
+client = OpenAI()
+
+JSON_SCHEMA = {
+    "name": "engineering_response",
+    "schema": {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {
+            "summary": {"type": "string"},
+            "steps": {"type": "array", "items": {"type": "string"}},
+            "risks": {"type": "array", "items": {"type": "string"}},
+        },
+        "required": ["summary", "steps", "risks"],
+    },
+}
+
+def main() -> int:
+    if not os.getenv("OPENAI_API_KEY"):
+        print("ERROR: OPENAI_API_KEY is not set.", file=sys.stderr)
+        return 2
+
+    user_prompt = " ".join(sys.argv[1:]).strip()
+    if not user_prompt:
+        user_prompt = "Explain how to set up a Python venv and install dependencies."
+
+    try:
+        # Uses OpenAI's Responses API (current recommended interface in the docs)
+        response = client.responses.create(
+            model="gpt-4.1-mini",
+            # Developer instructions = consistent style/format
+            instructions=(
+                "You are a concise engineering assistant. "
+                "Return ONLY valid JSON that matches the provided schema."
+            ),
+            input=user_prompt,
+            text={
+                "format": {
+                    "type": "json_schema",
+                    "json_schema": JSON_SCHEMA,
+                }
+            },
+        )
+
+        # The SDK provides convenient accessors, but we'll be safe and parse the text
+        raw_text = response.output_text.strip()
+        data = json.loads(raw_text)
+
+        print(json.dumps(data, indent=2))
+        return 0
+
+    except json.JSONDecodeError:
+        print("ERROR: Model did not return valid JSON.", file=sys.stderr)
+        print("Raw output was:\n", response.output_text, file=sys.stderr)
+        return 3
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
